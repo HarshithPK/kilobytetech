@@ -1,0 +1,34 @@
+<div id="menu">
+    <div id="menu">
+        <mat-toolbar id="menu">
+            <button
+                mat-icon-button
+                *ngIf="sidenav.mode === 'over'"
+                (click)="sidenav.toggle()"
+            >
+                <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+                <mat-icon *ngIf="sidenav.opened">close</mat-icon>
+            </button>
+            <span class="title-text">HMA</span>
+            <span class="spacer"></span>
+            <button
+                matRipple
+                type="button"
+                class="btn btn-outline-danger logout-button"
+                (click)="onLogout()"
+                *ngIf="isAuthenticated"
+            >
+                <i class="fas fa-sign-out-alt"><span> </span></i> Logout
+            </button>
+        </mat-toolbar>
+    </div>
+
+    <mat-sidenav-container>
+        <mat-sidenav #sidenav="matSidenav">
+            <app-navbar></app-navbar>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

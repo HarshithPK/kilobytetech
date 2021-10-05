@@ -1,0 +1,46 @@
+<div class="row mt-5">
+    <div class="col-xs-12 col-md-6 mt-3">
+        <form
+            class="d-flex flex-column justify-contents-center mt-5"
+            #authForm="ngForm"
+            (ngSubmit)="onSubmit(authForm)"
+        >
+            <h2 class="form-components login-title">Login</h2>
+            <mat-form-field class="form-components" appearance="outline">
+                <mat-label>Email</mat-label>
+                <input
+                    matInput
+                    type="email"
+                    id="email"
+                    name="email"
+                    ngModel
+                    required
+                    email
+                />
+            </mat-form-field>
+            <mat-form-field class="form-components" appearance="outline">
+                <mat-label>Password</mat-label>
+                <input
+                    matInput
+                    type="password"
+                    id="password"
+                    name="password"
+                    ngModel
+                    required
+                    minlength="6"
+                />
+            </mat-form-field>
+
+            <div class="form-components">
+                <button
+                    type="submit"
+                    matRipple
+                    class="btn btn-dark btn-rounded signup-button"
+                    [disabled]="!authForm.valid"
+                >
+                    Login
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
